@@ -1,3 +1,8 @@
+drop table review_id_table;
+drop table products_table;
+drop table customers_table;
+drop table vine_table;
+
 CREATE TABLE review_id_table (
   review_id TEXT PRIMARY KEY NOT NULL,
   customer_id INTEGER,
@@ -27,3 +32,26 @@ CREATE TABLE vine_table (
   vine TEXT,
   verified_purchase TEXT
 );
+
+select * from review_id_table;
+select * from products_table;
+select * from customers_table;
+select * from vine_table;
+
+select count(*) as "Count"
+from vine_table
+where vine = 'Y'
+
+select count(*) as "Count"
+from vine_table
+where vine = 'N'
+
+select count(*), star_rating
+from vine_table
+where vine = 'Y'
+group by star_rating
+
+select count(*), star_rating
+from vine_table
+where vine = 'N'
+group by star_rating
